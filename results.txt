@@ -1,0 +1,79 @@
+## Experiment: STEPS = 300 (.\images\STEPS = 300)
+
+In this section, we analyze the simulation outputs when running **300 steps** on a complete network of 100 nodes (50 repetitions) using a 12-qubit MetaQubit. The following figures illustrate the cost function evolution, the standard deviation of edge weights, and the distribution of weights at specific simulation steps.
+
+1. **Cost Convergence Over Simulation Steps**  
+   - The cost function fluctuates around a value close to zero, with relatively large variations (as indicated by the shaded standard deviation).  
+   - This reflects the stochastic nature of the MetaQubit output: it does not lock into a single state but continues exploring positive/negative values throughout the simulation.
+
+2. **Convergence of Edge Weights Variance**  
+   - The average standard deviation of edge weights gradually increases from about 0.283 to around 0.288 by step 300.  
+   - This indicates a self-organizing trend: while most edges remain near zero, a few edges acquire higher or lower values, causing a slight overall rise in variance.
+
+3. **Histograms of Edge Weights**  
+   - **Step 0:** The initial distribution is nearly uniform in the range [-1, 1].  
+   - **Step 150:** Most edge weights cluster near zero, yet a few edges exhibit values up to ±25 or beyond.  
+   - **Step 299:** Even more extreme outliers appear (±50, ±100, etc.), but the bulk of edges is still concentrated near zero. This explains why the standard deviation increases only modestly rather than exploding.
+
+**Summary for STEPS = 300**  
+Overall, the network shows a mild yet consistent increase in weight variance over 300 steps, with the cost function oscillating around zero. The majority of edges remain close to zero, whereas a small subset of edges develops large positive or negative weights, driving the observed variance upwards.
+
+
+## Experiment: STEPS = 600 (.\images\STEPS = 600)
+
+When running **600 steps**, the edge weight variance continues to rise gradually, while the cost function remains noisy around zero. Key observations include:
+
+1. **Cost Convergence Over Simulation Steps**  
+   - The mean cost hovers near zero with a relatively large standard deviation (about 0.1).  
+   - This reflects the ongoing stochastic behavior of the MetaQubit, which does not settle into a single mode but explores both positive and negative outputs.
+
+2. **Convergence of Edge Weights Variance**  
+   - The mean standard deviation of edge weights increases from roughly 0.283 to around 0.292 by step 600.  
+   - This mostly monotonic rise indicates that while most edges remain close to zero, a few edges develop significantly large positive or negative values, pushing the overall variance upward.
+
+3. **Histograms of Edge Weights**  
+   - **Step 0:** A nearly uniform distribution within the range [-1, 1].  
+   - **Step 300:** Outliers appear up to about ±200, but the majority of weights are clustered near zero.  
+   - **Step 599:** Extreme values reach ±400 for a small number of edges, whereas the main body of the distribution still centers around zero.  
+   - These outliers explain the steady increase in the overall standard deviation without causing an explosive divergence.
+
+**Summary for STEPS = 600**  
+Overall, the network continues to exhibit a slow yet consistent growth in variance, while the cost remains stochastic around zero. This behavior indicates that the MetaQubit-driven updates keep exploring the weight space, fostering a self-organizing dynamic in the network.
+
+## Experiment: STEPS = 1000 (.\images\STEPS = 1000)
+
+When running **1000 steps**, the network continues to show a gradual increase in edge weight variance, with the cost function fluctuating around zero. Key observations include:
+
+1. **Cost Convergence Over Simulation Steps**  
+   - The cost remains near zero, with a relatively high standard deviation (~0.1–0.12).  
+   - This indicates that the MetaQubit persists in generating stochastic outputs, never locking into a single, stable value.
+
+2. **Convergence of Edge Weights Variance**  
+   - The mean standard deviation of edge weights rises from about 0.282 to approximately 0.294 by step 1000.  
+   - The increase is largely monotonic, suggesting that while most edges stay near zero, a few edges develop significantly large positive or negative values, pushing the overall variance higher.
+
+3. **Histograms of Edge Weights**  
+   - **Step 0:** Almost uniform distribution within [-1, 1].  
+   - **Step 500:** Outliers up to ±300 appear, yet the majority of weights remain clustered around zero.  
+   - **Step 999:** Even more extreme outliers (±400, ±600) are visible for a handful of edges, but the bulk of the distribution is still centered near zero.  
+   - These sparse but large outliers explain the slow, steady increase in the overall standard deviation.
+
+**Summary for STEPS = 1000**  
+Overall, the network exhibits a consistently rising variance without devolving into chaotic or explosive growth. The cost function continues oscillating around zero, demonstrating that the MetaQubit-driven updates maintain a stochastic exploration of the weight space over the long run.
+
+
+## Conclusion
+
+These experiments demonstrate a stable, non-linear dynamic imposed on a 100-node network by only **12 MetaQubits**. Despite the network’s large size (nearly 5,000 edges), the results show that the MetaQubit:
+
+- **Produces more than mere random noise:** There is a clear trend in the rising standard deviation of edge weights and distinct patterns in the cost function.
+- **Achieves self-organizing behavior:** Most edges remain clustered around zero, while a small subset evolves into extreme positive or negative values, creating a “spread out” distribution that remains stochastically stable.
+- **Maintains cost balance (~0):** The cost oscillates without diverging or collapsing, suggesting continuous exploration of positive and negative outputs.
+
+Overall, using 12 MetaQubits to “coordinate” a much larger network validates the **quantum-inspired** approach:
+
+- A **small parameter set** (qubits)  
+- **Large-scale** network handling (100 nodes)  
+- **Non-linear, self-organized** evolution without exponential resource requirements  
+
+These findings pave the way for further research with alternative graph topologies (beyond complete graphs), different cost metrics, and even larger scales—where MetaQubits can serve as an **efficient, quantum-inspired method** for self-organization and optimization.
