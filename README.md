@@ -52,5 +52,5 @@ The simulation results illustrate that despite random initial conditions and sto
 
 Network Behavior: The majority of edge weights converge toward a narrow range near zero, while a few outlier edges significantly affect overall variance.
 Cost Dynamics: The cost function exhibits a noisy but balanced behavior, reflecting the inherent quantum-inspired stochasticity.
-Scalability: While simulations with 100 nodes run efficiently, scaling to larger networks (e.g., 100 nodes) may require further resource optimization.
+Scalability: While simulations with 100 nodes run efficiently, scaling to larger networks (e.g., 200 nodes) may require further resource optimization.
 A detailed report of the simulation results and in-depth analysis is provided in a separate document
